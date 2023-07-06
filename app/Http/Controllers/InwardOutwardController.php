@@ -16,7 +16,7 @@ class InwardOutwardController extends Controller
     public function index()
     {
         $in_outs =DB::table('inward-outward')
-         ->select('category_maste.cat_name', 'inward-outward.id', 'inward-outward.category_id', 'inward-outward.mat_id','material.mat_name','inward-outward.in_out_qty','inward-outward.entry_date')
+         ->select('category_maste.cat_name', 'inward-outward.id', 'inward-outward.category_id', 'inward-outward.mat_id','material.mat_name','material.open_balance','inward-outward.in_out_qty','inward-outward.entry_date')
         ->join('category_maste', 'category_maste.id', '=', 'inward-outward.category_id')
         ->join('material', 'inward-outward.mat_id', '=', 'material.id')
         ->where('inward-outward.deleted_at',null)

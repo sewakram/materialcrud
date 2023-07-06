@@ -49,6 +49,7 @@ There were some problems with your input.<br><br>
             <th>Material Name</th>
             <th>Date</th>
             <th>Inward-outward Qty.</th>
+            <th>Current balance</th>
             <th width="280px">Action</th>
         </tr>
         </thead>
@@ -60,6 +61,7 @@ There were some problems with your input.<br><br>
             <td>{{ $mat->mat_name }}</td>
             <td>{{ $mat->entry_date }}</td>
             <td>{{ $mat->in_out_qty }}</td>
+            <td>{{ ($mat->in_out_qty)+($mat->open_balance) }}</td>
             <td>
                 <form action="{{ route('inward-outward.destroy',$mat->id) }}" method="POST">
    

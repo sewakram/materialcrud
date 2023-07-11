@@ -54,6 +54,7 @@ There were some problems with your input.<br><br>
         </tr>
         </thead>
         <tbody>
+        
         @foreach ($in_outs as $mat)
         <tr>
             <td>{{ ++$i }}</td>
@@ -61,7 +62,7 @@ There were some problems with your input.<br><br>
             <td>{{ $mat->mat_name }}</td>
             <td>{{ $mat->entry_date }}</td>
             <td>{{ $mat->in_out_qty }}</td>
-            <td>{{ ($mat->in_out_qty)+($mat->open_balance) }}</td>
+            <td>{{ (int)$mat->open_balance+((int)$mat->in_out_qty) }}</td>
             <td>
                 <form action="{{ route('inward-outward.destroy',$mat->id) }}" method="POST">
    
